@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/index.html :: head">
+</head>
+
+<body  class="login-page">
+    <!-- ======= Header ======= -->
+    <header th:replace="/fragments/index.html :: header">
+    </header><!-- End Header --> 
+
+    <section id="registration">
+        <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-lg-7">
+                        <img th:src="@{/assets/img/hero-img.png}" alt="" />
+                    </div>
+                    <div class="col-md-6 col-lg-5">
+                        <div class="login-box bg-white box-shadow border-radius-10">
+                            <div class="login-title">
+                                <div class="form-group row">
+                                    <div class="col-form-label">
+                                        <h2 class="text-center text-primary">Bienvenue chez CoCo Car</h2></div>
+                                        <iframe class="w-90 border-0"
+                                            src="https://embed.lottiefiles.com/animation/31548">
+                                        </iframe>
+                                </div>
+                            </div>
+                            <div th:if="${param.success}">
+                                <div class="alert alert-info">You've successfully registered
+                                    to our awesome app!
+                                </div>
+                            </div>
+                            <!--<form th:action="@{/registration}" method="post" th:object="${user}" class="row g-3 needs-validation" enctype="multipart/form-data">
+                                <div class="col-12">
+                                    <label for="nom" class="form-label">Nom</label>
+                                    <input type="text"  class="form-control" id="nom" th:field="*{nom}" required autofocus="autofocus">
+                                    <div class="invalid-feedback">Please, enter your name!</div>
+                                </div>
+                               
+                                <div class="col-12">
+                                    <label for="prenom" class="form-label">Prenom</label>
+                                    <input type="text"  class="form-control" th:field="*{prenom}" autofocus="autofocus" required>
+                                    
+                                </div>
+                                <div class="form-group row align-items-center">
+                                    <label for="gender" class="col-sm-4 col-form-label">Gender</label>
+                                    <div class="col-sm-8">
+                                        <div class="custom-control custom-radio custom-control-inline pb-0">
+                                            <input id = "gender1" name = "gender" type = "radio" value = "M" checked = "checked" class="custom-control-input"/>
+                                            <label for = "gender1" class="custom-control-label">Male</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline pb-0">
+                                            <input id = "gender2" name = "gender" type = "radio" value = "F" class="custom-control-input"/>
+                                            <label for = "gender2" class="custom-control-label">Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="email" class="form-label">Email</label>
+                                    <div class="input-group has-validation">
+                                      <input type="text" name="email" class="form-control" id="email" th:field="*{email}" autofocus="autofocus" required>
+                                      <div class="invalid-feedback">Please choose an Email.</div>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-12">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group has-validation">
+                                        <input type="password" name="password" class="form-control" id="password" th:field="*{password}" autofocus="autofocus" required>
+                                        <div class="invalid-feedback">Please enter your password!</div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="phone" class="form-label">Tel</label>
+                                    <div class="input-group has-validation">
+                                        <input name="phone" type="number" th:field="*{phone}"  class="form-control" autofocus="autofocus" required/>
+                                        <div class="invalid-feedback">Please enter your password!</div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="photo" class="form-label">photo</label>
+                                    <input type="file" name="files" class="form-control-file form-control height-auto" multiple/>
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                                </div>
+                                 
+                                <div class="col-12">
+                                    <p class="small mb-0">Already have an account? <a th:href="@{/login}">Log in</a></p>
+                                </div>
+                               </div>
+                            </form>-->
+                            <form th:action="@{/registration}" method="post" th:object="${user}"  enctype="multipart/form-data" class="form-horizontal" role="form">
+                                <div class="form-group row">
+                                    <label for="nom" class="col-sm-4 col-form-label">Nom</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" id="nom"  th:field="*{nom}" class="form-control" required autofocus="autofocus" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="prenom" class="col-sm-4 col-form-label">Prenom</label>
+                                    <div class="col-sm-8">
+                                        <input  id="prenom"  th:field="*{prenom}" type="text" class="form-control" required/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-4 col-form-label">Email</label>
+                                    <div class="col-sm-8">
+                                        <input id="email" th:field="*{email}"  type="text" class="form-control" required/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="password" class="col-sm-4 col-form-label">Password </label>
+                                    <div class="col-sm-8">
+                                        <input name="password" th:field="*{password}" type="password" class="form-control" required/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="phone" class="col-sm-4 col-form-label">Tel </label>
+                                    <div class="col-sm-8">
+                                        <input  th:field="*{phone}" name="phone" type="number" class="form-control" required/>
+                                    </div>
+                                </div>
+                                <div class="form-group row align-items-center">
+                                    <label for="gender" class="col-sm-4 col-form-label">Gender</label>
+                                    <div class="col-sm-8">
+                                        <div class="custom-control custom-radio custom-control-inline pb-0">
+                                            <input id = "gender1" name = "gender" type = "radio" value = "M" checked = "checked" class="custom-control-input"/>
+                                            <label for = "gender1" class="custom-control-label">Male</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline pb-0">
+                                            <input id = "gender2" name = "gender" type = "radio" value = "F" class="custom-control-input"/>
+                                            <label for = "gender2" class="custom-control-label">Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Photo </label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <input name="photo" th:field="*{photo}" type="file" class="form-control-file form-control height-auto"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="role" class="col-sm-4 col-form-label">Role</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control">
+                                            <option>Choisir</option>
+                                            <option>Client</option>
+                                            <option>Pilot</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-group mb-0">
+                                            <button class="btn btn-lg btn-primary btn-block"  type="Submit">Inscription</button>
+                                        </div>
+                                        <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">
+                                                OR
+                                        </div>
+                                        <div class="input-group mb-0">
+                                            <a class="btn btn-outline-primary btn-lg btn-block" th:href="@{/login}">Login</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+    
+    <!-- success Popup html Start -->
+    <button
+        type="button"
+        id="success-modal-btn"
+        hidden
+        data-toggle="modal"
+        data-target="#success-modal"
+        data-backdrop="static"
+    >
+        Launch modal
+    </button>
+    <div
+        class="modal fade"
+        id="success-modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+    >
+        <div
+            class="modal-dialog modal-dialog-centered max-width-400"
+            role="document"
+        >
+            <div class="modal-content">
+                <div class="modal-body text-center font-18">
+                    <h3 class="mb-20">Form Submitted!</h3>
+                    <div class="mb-30 text-center">
+                        <img src="vendors/images/success.png" />
+                    </div>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a href="login.html" class="btn btn-primary">Done</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- success Popup html End -->
+    <!-- welcome modal start -->
+    
+    
+    
+</body>
+
+</html>

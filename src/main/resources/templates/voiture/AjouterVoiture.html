@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/index2.html :: head">
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header th:replace="/fragments/index2.html :: header">
+    </header><!-- End Header -->
+
+	<header th:replace="/pilote/index.html :: sidebar">
+    </header>
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<!-- Default Basic Forms Start -->	
+					<div class="contact-directory-list">
+						<ul class="row">
+							<li class="col-xl-12 col-lg-4 col-md-6 col-sm-12">
+								<div class="contact-directory-box">
+									<div class="contact-dire-info text-center">
+										<h3 class="breadcrumb-item active">Ajouter Voiture</h3>
+            							<hr/>
+            							<br/>
+										<div class="contact-avatar">
+											<span>
+												<iframe class="w-100 border-0" src="https://embed.lottiefiles.com/animation/101384"></iframe>
+											</span>
+										</div>
+										<div class="contact-name">
+											<form th:action="@{/voiture/save}" th:object="${voiture}" method="POST" enctype="multipart/form-data">
+												<div >
+													<div >
+														<div class="form-group row">
+															<label class="col-sm-12 col-md-3 col-form-label" for="marque">Marque</label>
+															<div class="col-sm-12 col-md-7">
+																<input class="form-control" type="text" th:field="*{marque}" required>
+															</div>
+														</div>	
+													</div>
+													<div >
+														<div class="form-group row">
+															<label class="col-sm-12 col-md-3 col-form-label" for="matricule" >Matricule</label>
+															<div class="col-sm-12 col-md-7">
+																<input class="form-control"  th:field="*{matricule}" required>
+															</div>
+														</div>
+													</div>
+												</div>
+						
+												<div>					
+													<div class="form-group row">
+														<label class="col-sm-12 col-md-3 col-form-label" for="marque">Pilote</label>
+														<div class="col-sm-12 col-md-7">
+															<input class="form-control" type="text" >
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-12 col-md-3 col-form-label">Photo</label>
+														<div class="col-sm-12 col-md-7">
+															<div class="custom-file">
+																<input class="form-control" type="file" name="files" multiple>
+															</div>
+														</div>
+													</div>						
+												</div>
+												<div class="row">
+													<div class="col-md-5 col-sm-12">
+														<div class="form-group row">
+															
+														</div>	
+													</div>
+													<div class="col-md-1 col-sm-12">
+														<div class="form-group row">
+															<input type="submit" class="btn btn-primary" value="Ajouter">
+														</div>	
+													</div>
+													<div class="col-md-1 col-sm-12">
+														<div class="form-group row">
+															<button type="reset" th:href="@{/voiture/list}" class="btn btn-secondary" >Annuler</button>
+														</div>
+													</div>
+												</div>	
+											</form>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+		</div>
+		<!-- Default Basic Forms End -->
+	</div>
+		
+
+    <div th:replace="/fragments/index2.html :: script">
+	</div><!-- End Header -->
+</body>
+</html>
